@@ -8,13 +8,14 @@ async function test() {
       body: {
         query: {
           multi_match: {
-            query: 'para',
+            query: 'jason',
             fields: [
               'title^5', 'description', 'guest^10', 'tags', 'captions^2'
             ]
           }
         },
-        "_source": false, // https://www.elastic.co/guide/en/elasticsearch/reference/current/highlighting.html#specify-highlight-query
+        // "_source": false, // https://www.elastic.co/guide/en/elasticsearch/reference/current/highlighting.html#specify-highlight-query
+        "_source": ["title", "description", "guest"],
         highlight: {
           fields: {
             title: {},
